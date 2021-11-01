@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
+h3 {
+  font-family: 'IM Fell English SC';
+  color: #565656;
+}
+
+.card:hover {
+  opacity: 0.7;
+}
+
+.abv {
+  opacity: 0;
+}
+
+.card:hover .abv{
+  opacity: 1;
+}
+
+// .card:hover .box:not(:hover) {
+//   opacity: 0.4;
+// }
+
+//mobile
+
+.card {
+  height: 350px;
+  flex: 0 0 96%;
+  margin: 2%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 5px 15px 33px 5px rgba(0,0,0,0.37);
+}
+
+.cardImage {
+  height: 200px;
+}
+
+//tablet & mobile landscape
+@media screen and (min-width: 550px) {
+  .card {
+    height: 350px;
+    flex: 0 0 44%;
+    margin: 2%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 5px 15px 33px 5px rgba(0,0,0,0.37);
+  }
+}
+//desktops and larger screens
+@media screen and (min-width: 850px) {
+  .card {
+    margin: 1%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    flex: 0 0 25%;
+    box-shadow: 5px 15px 33px 5px rgba(0,0,0,0.37);
+  }
+
+  .cardImage {
+    // max-height: 200px;
+  }
+  
+
+  
+}
