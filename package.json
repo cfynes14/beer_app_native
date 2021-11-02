@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/im-fell-english-sc": "^0.2.0",
+    "gh": "^2.8.9",
     "react": "17.0.2",
     "react-native": "0.66.1"
   },
@@ -31,5 +32,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }
