@@ -8,7 +8,7 @@
 
 import React from 'react';
 import {useState, useEffect} from 'react';
-import type {Node} from 'react';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -20,11 +20,6 @@ import {
   View,
 } from 'react-native';
 
-//fonts
-import {
-  useFonts,
-  IMFellEnglishSC_400Regular,
-} from '@expo-google-fonts/im-fell-english-sc';
 //components
 import Details from './src/components/Details/Details';
 import Rail from './src/components/Rail/Rail';
@@ -44,7 +39,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => Node = () => {
+const App = () => {
   const [allBeer, setAllBeer] = useState<Beers[]>([]);
   const [currentBeer, setCurrentBeer] = useState<Beers[]>([]);
   const [isHome, setIsHome] = useState<boolean>(true);
@@ -53,11 +48,12 @@ const App: () => Node = () => {
   const [hops, setHops] = useState<string[]>([]);
 
   const getBeer = async () => {
-    // const res = await fetch(`https://api.punkapi.com/v2/beers?per_page=80`);
-    // const json = await res.json();
-    console.log('setting beer');
-    console.log(data);
-    setAllBeer(data);
+    const res = await fetch(`https://api.punkapi.com/v2/beers?per_page=80`);
+    const json = await res.json();
+    // console.log('setting beer');
+    // console.log(data);
+    // setAllBeer(data);
+    setAllBeer(json);
 
     // setHops(hopFinder(json));
   };
@@ -66,31 +62,23 @@ const App: () => Node = () => {
   useEffect(() => {
     console.log('useEffect');
     getBeer();
+    console.log(data);
   }, []);
 
   return (
-    <View>
-      <Text>Hello World!</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Beer Selector</Text>
+      <Rail cardProps={allBeer} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  container: {},
+  title: {
+    marginHorizontal: 325,
+    fontFamily: 'IMFellEnglishSC-Regular',
+    fontSize: 50,
   },
 });
 
